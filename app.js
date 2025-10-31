@@ -101,14 +101,14 @@ app.use((req, res, next) => {
 //   res.send(registerUser);
 // });
 
+app.get("/", (req, res) => {
+  res.redirect("/listings"); 
+});
+
 //using routes
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
-
-app.get("/", (req, res) => {
-  res.redirect("/listings");  // or res.render("listings/index.ejs");
-});
 
 
 //middleware for error handling
